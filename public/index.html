@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>The Lion, the Witch and the Wardrobe</title>
+        <style>
+            :root {
+                --blackish: #0b0b0b;
+            }
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                overflow: hidden;
+            }
+            body {
+                background-color: #750186;
+                backdrop-filter: brightness(75%);
+                -wbkit-backdrop-filter: brightness(75%);
+                background-size: contain;
+                background-repeat: repeat-x;
+                image-rendering: pixelated;
+                position: absolute;
+ 
+                color: var(--blackish);
+                overflow-y: scroll;
+ 
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .card {
+                background-color: whitesmoke;
+                box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+                padding: 0.5em;
+            }
+            header {
+                margin: 0;
+                position: sticky;
+                top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            header a {
+                text-decoration: none;
+                color: var(--blackish)
+            }
+            header h1, header h2 {
+                margin: 0;
+            }
+            header > * {
+                display: inline-block;
+            }
+            .panic {
+                border: none;
+                background-color: lightgray;
+                color: whitesmoke;
+                font-size: large;
+                cursor: pointer;
+                float: right;
+            }
+            .panic:hover {
+                filter: brightness(0.8);
+            }
+ 
+            main {
+                flex-grow: 1;
+                margin: 1em;
+                height: fit-content;
+                flex-direction: column;
+            }
+            .top-margin {
+                margin-top: 1em;
+            }
+            .flex {
+                display: flex;
+            }
+            .flex > *:not(iframe, img) {
+                flex-grow: 1;
+            }
+            .flex-spaced {
+                justify-content: space-between;
+            }
+            .content {
+                padding: 2em;
+            }
+            .content div {
+                width: 50%;
+                margin-left: 4em;
+            }
+            iframe:not(.safe), img:not(.safe), video:not(.safe), .unsafe {
+                display: none;
+            }
+            .content > iframe {
+                height: 100%;
+                width: calc(100% * 315 / 560)
+            }
+            @media (max-width:700px)  {
+                body {
+                    background-size: 100% 100%;
+                }
+                .content {
+                    flex-direction: column;
+                    margin-left: initial;
+                }
+                .content div {
+                    width: 100%;
+                    margin-left: 0;
+                }
+                .content > iframe {
+                    width: 100%;
+                }
+            }
+        </style>
+        <link rel="icon" type="image/png" sizes="16x16" href="img.png">
+        <link rel="stylesheet" href="style.css"/>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <header class="card">
+            <h1><a title="Home" href=""><span class="unsafe">🏳‍🌈 AWHS GSA</span><span class="safe">The Lion, the Witch and the Wardrobe</span></a></h1>
+            <button class="panic" onclick="window.close(); window.location='about:blank'"><h2>Exit</h2></button>        </header>
+        <main class="flex">
+            <div class="card flex flex-spaced content">
+                <iframe src="https://www.youtube-nocookie.com/embed/null" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                <img style="width: auto; height: 500px" alt="Cover image of The Lion, the Witch and the Wardrobe" class="safe" src="http://img2.wikia.nocookie.net/__cb20140317235438/disney/images/f/fd/Chronicles_of_narnia_the_lion_the_witch_and_the_wardrobe.jpg"/>
+                <div>
+                    <h3>About</h3>
+                    <p>
+                        <span class="safe">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis cursus tellus.
+                            Aliquam imperdiet pellentesque purus sed finibus. Etiam feugiat eget felis vitae consequat. Pellentesque in pharetra magna.
+                            Aenean massa tortor, tristique non diam in, pretium condimentum mi. Fusce placerat vestibulum orci id cursus. Duis sagittis nisi tellus,
+                            nec convallis est placerat et. Nullam lobortis a metus et vulputate. Vivamus ultrices ultricies justo, vel vulputate nibh elementum ac.
+                            Nulla mattis consequat ante, eu imperdiet arcu dictum at. Sed varius enim nibh, eget mollis nulla tempus ut. Quisque dapibus aliquet
+                            scelerisque. Sed et venenatis lorem.
+                            <br>
+                            <br>
+                        </span>
+ 
+                          The GSA at Arvada West High School works to create a welcoming environment for all people, regardless of sexual orientation or
+                        gender identity through education, support, social action, and advocacy. We believe that schools can be truly safe ONLY when every
+                        student is assured of access to an education without fear of harassment or violence.  Our Gay-Straight Alliance brings together LGBTQI+
+                        and straight allies.  All are welcome.
+ 
+                        <span class="safe">
+                            <br>
+                            <br>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis cursus tellus.
+                            Aliquam imperdiet pellentesque purus sed finibus. Etiam feugiat eget felis vitae consequat. Pellentesque in pharetra magna.
+                            Aenean massa tortor, tristique non diam in, pretium condimentum mi. Fusce placerat vestibulum orci id cursus. Duis sagittis nisi tellus,
+                            nec convallis est placerat et. Nullam lobortis a metus et vulputate. Vivamus ultrices ultricies justo, vel vulputate nibh elementum ac.
+                            Nulla mattis consequat ante, eu imperdiet arcu dictum at. Sed varius enim nibh, eget mollis nulla tempus ut. Quisque dapibus aliquet
+                            scelerisque. Sed et venenatis lorem.
+                        </span>
+                    </p>
+                    <h3>Sponsors</h3>
+                    <ul>
+                        <li>Mrs. Dallman (<a href="mailto:kdallman@jeffco.k12.co.us" target="_blank">kdallman@jeffco.k12.co.us</a>, 303-982-1311)</li>
+                        <li>Ms. Throndson</li>
+                    </ul>
+                </p>
+                </div>
+            </div>
+            <div class="card top-margin">
+                <p>
+                    TODO: Meeting info
+                </p>
+            </div>
+        </main>
+        <div class="card top-margin">
+            <p>
+                © Trinity W & Arvada West GSA Club 2021 | <a href="https://github.com/AWHSDev/AWHSGSAFirebase" title="AWHS GSA GitHub Repository">GitHub Repo</a> | Contact: <a href="mailto:awhsdev@gmail.com" target="_blank">awhsdev@gmail.com</a> | <a>Online Privacy Tips</a> | <a title="TOR Browser" target="_blank" href="https://www.torproject.org/download/">Get TOR Browser</a>
+            </p>
+        </div>
+    </body>
+</html>
