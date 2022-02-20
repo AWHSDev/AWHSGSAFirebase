@@ -237,7 +237,7 @@
                         'vertical-align': 'text-bottom'
                     }});
                 (async function($host) {
-                    const result = SHML.parseMarkup(await text('content.md'), new Map(Object.fromEntries({
+                    const result = SHML.parseMarkup(await text('content.md'), new Map(Object.entries({
                         'flag': '🏳‍🌈'
                     })));
 
