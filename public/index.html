@@ -8,6 +8,7 @@
         <meta name="description" content="Website for Arvada West High School's GSA">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
         <script src="/scripts/domlib-latest.js"></script>
+        <script src="/scripts/domlib-extra.js"></script>
         <script src="/scripts/shml.js"></script>
         <script>
             window.customElements.define('mobile-only', class extends HTMLElement {})
@@ -226,7 +227,37 @@
             <iframe style="border:0" title="Embeded Video" src="https://drive.google.com/file/d/1fqBAEom_CYiJWCao0wGX1YpZivqZUylS/preview" width="640" height="480" allow="autoplay"></iframe>
         </section>
         <section>
-            Lorem Ipsum
+            <script>
+                async function text(resource) {
+                    try {
+                        const response = await fetch(resource);
+                        return response.ok ? await response.text() : null;
+                    } catch(ignored) {
+                        return null;
+                    }
+                }
+                // External link icon by Heroicons
+                const EXTERNAL_LINK =
+                    new SVGNode('svg', { viewBox: '0 0 20 20', fill: 'currentColor', children: [
+                        new SVGNode('path', {d: "M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"}),
+                        new SVGNode('path', {d: "M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"})
+                    ], style: {
+                        height: '1em',
+                        width: '1em',
+                        'vertical-align': 'text-bottom'
+                    }});
+                (async function($host) {
+                    const result = SHML.parseMarkup(await text('content.md'), new Map(Object.fromEntries({
+                        'flag': '🏳‍🌈'
+                    })));
+
+                    $host.innerHTML = result;
+                    
+                    for(const anchor of $host.$$self`a`.$toArray())
+                            if(anchor.origin !== window.location.origin)
+                                anchor.appendChild(EXTERNAL_LINK.cloneNode(true));
+                })($host)
+            </script>
         </section>
         <script>
             $$`main section:not(:last-of-type)`.$forEach(e => e.appendChild(new HtmlNode('span', {
