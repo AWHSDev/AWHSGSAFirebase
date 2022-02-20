@@ -26,7 +26,7 @@
             main {
                 flex-grow: 1;
                 overflow-y: scroll;
-                scroll-snap-type: y mandatory;
+                scroll-snap-type: y proximity;
                 scroll-snap-stop: always;
             }
             main section {
@@ -102,10 +102,13 @@
                 align-items: center;
                 width: 100%;
                 height: 4em;
-                /*'red|orange|yellow|green|blue|purple', '#ff0000|#ffae00|#ffee00|#39d42b|#0084ff|#b700ff'.split('|').map((v,i,a) => {
-    if(i === a.length-1) return `${v} ${100/a.length * (i)}%`
-    return (i !== 0 ? `${v} ${100/a.length * (i)}%, ` : '') + `${v} ${100/a.length * (i+1)}%`
-}).join(', ')*/
+                /*
+                    // JavaScript to generate rainbow gradient
+                    'red|orange|yellow|green|blue|purple', '#ff0000|#ffae00|#ffee00|#39d42b|#0084ff|#b700ff'.split('|').map((v,i,a) => {
+                        if(i === a.length-1) return `${v} ${100/a.length * (i)}%`
+                        return (i !== 0 ? `${v} ${100/a.length * (i)}%, ` : '') + `${v} ${100/a.length * (i+1)}%`
+                    }).join(', ')
+                */
             }
             header mobile-only a {
                 padding: 0 1em;
