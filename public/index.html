@@ -80,6 +80,8 @@
             }
             main section:last-of-type {
                 padding: 1em;
+                min-height: 100%;
+                height: fit-content;
             }
             main section footer p {
                 width: 100%;
@@ -249,6 +251,11 @@
                 })($host)
             </script>
         </section>
+        <footer>
+            <p>
+                &copy; Trin W &amp; Arvada West GSA Club 2021 | <a href="https://github.com/AWHSDev/AWHSGSAFirebase" title="AWHS GSA GitHub Repository">GitHub Repo</a> | Contact: <a href="mailto:awhsdev@gmail.com" target="_blank">awhsdev@gmail.com</a>
+            </p>
+        </footer>
         <script>
             $$`main section:not(:last-of-type)`.$forEach(e => e.appendChild(new HtmlNode('span', {
                 textContent: String.fromCharCode(751),
