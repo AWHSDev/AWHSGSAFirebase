@@ -1,0 +1,4 @@
+# A simple web server, note that there are minor 
+# differences to serving via Firebase
+cd public
+python3 -m http.server --bind localhost

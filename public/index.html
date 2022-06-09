@@ -7,9 +7,10 @@
         <title>Arvada West GSA</title>
         <meta name="description" content="Website for Arvada West High School's GSA">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-        <script src="/scripts/domlib-latest.js"></script>
-        <script src="/scripts/domlib-extra.js"></script>
-        <script src="/scripts/shml.js"></script>
+        <!--<script src="/scripts/domlib-latest.js"></script>
+        <script src="/scripts/domlib-extra.js"></script>-->
+        <script src="/scripts/shml.min.js"></script>
+        <script src="/scripts/domlib.min.js?bind"></script>
         <script>
             window.customElements.define('mobile-only', class extends HTMLElement {})
         </script>
@@ -83,6 +84,9 @@
                 min-height: 100%;
                 height: fit-content;
                 scroll-snap-align: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
             }
             footer p {
                 width: 100%;
@@ -186,99 +190,141 @@
             }
         </style>
     </head>
-<body>
-    <header>
-        <mobile-only>
-            <svg onclick="document.documentElement.style.setProperty('--nav', document.documentElement.style.getPropertyValue('--nav') !== 'flex' ? 'flex' : 'none');" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            <a href=".">Arvada West GSA 🏳‍🌈</a>
-        </mobile-only>
-        <nav>
-            <a href="." style="--color: #ff0000">Arvada West GSA</a>
-            <a href="#h2:schoology" style="--color: #ffae00">Schoology</a>
-            <a href="#h2:meetings" style="--color: #ffee00">Meetings</a>
-            <a href="#h2:events" style="--color: #39d42b">Events</a>
-            <a href="#h2:contact" style="--color: #0084ff">Contact</a>
-            <a href="#h2:resources" style="--color: #b700ff">Resources</a>
-        </nav>
-        <script>
-            $$`nav a`.onclick = () => document.documentElement.style.setProperty('--nav', 'none');
-        </script>
-    </header>
-    <main>
-        <section>
-            <h1>
-                The GSA at Arvada West High School works to create a
-                welcoming environment for all people, regardless of
-                sexual orientation or gender identity through education,
-                support, social action, and advocacy.
-            </h1>
-            <br>
-            <h2>
-                We believe that schools can be truly safe ONLY when every
-                student is assured of access to an education without fear
-                of harassment or violence. Our Gay-Straight Alliance brings
-                together LGBTQI+ and straight allies. All are welcome.
-            </h2>
-        </section>
-        <section>
-            <iframe style="border:0" title="Embeded Video" src="https://drive.google.com/file/d/1fqBAEom_CYiJWCao0wGX1YpZivqZUylS/preview" width="640" height="480" allow="autoplay"></iframe>
-        </section>
-        <section>
+    <body>
+        <header>
+            <mobile-only>
+                <svg onclick="document.documentElement.style.setProperty('--nav', document.documentElement.style.getPropertyValue('--nav') !== 'flex' ? 'flex' : 'none');" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <a href=".">Arvada West GSA 🏳‍🌈</a>
+            </mobile-only>
+            <nav>
+                <a href="." style="--color: #ff0000">Arvada West GSA</a>
+                <a href="#h2:schoology" style="--color: #ffae00">Schoology</a>
+                <a href="#h2:meetings" style="--color: #ffee00">Meetings</a>
+                <a href="#h2:events" style="--color: #39d42b">Events</a>
+                <a href="#h2:contact" style="--color: #0084ff">Contact</a>
+                <a href="#h2:resources" style="--color: #b700ff">Resources</a>
+            </nav>
             <script>
-                async function text(resource) {
-                    try {
-                        const response = await fetch(resource);
-                        return response.ok ? await response.text() : null;
-                    } catch(ignored) {
-                        return null;
-                    }
-                }
-                // External link icon by Heroicons
-                const EXTERNAL_LINK =
-                    new SVGNode('svg', { viewBox: '0 0 20 20', fill: 'currentColor', children: [
-                        new SVGNode('path', {d: "M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"}),
-                        new SVGNode('path', {d: "M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"})
-                    ], style: {
-                        height: '1em',
-                        width: '1em',
-                        'vertical-align': 'text-bottom'
-                    }});
-                (async function($host) {
-                    const result = SHML.parseMarkup(await text('content.md'), new Map(Object.entries({
-                        'flag': '🏳‍🌈'
-                    })));
-
-                    $host.innerHTML = result;
-                    
-                    for(const anchor of $host.$$self`a`.$toArray())
-                            if(anchor.origin !== window.location.origin)
-                                anchor.appendChild(EXTERNAL_LINK.cloneNode(true));
-                    
-                    document.getElementById(window.location.hash.substring(1))?.scrollIntoView();
-                })($host)
+                $$`nav a`.onclick = () => document.documentElement.style.setProperty('--nav', 'none');
             </script>
-        </section>
-        <footer>
-            <p>
-                &copy; Trin W &amp; Arvada West GSA Club 2021 | <a href="https://github.com/AWHSDev/AWHSGSAFirebase" title="AWHS GSA GitHub Repository">GitHub Repo</a> | Contact: <a href="mailto:awhsdev@gmail.com" target="_blank">awhsdev@gmail.com</a>
-            </p>
-        </footer>
-        <script>
-            $$`main section:not(:last-of-type)`.$forEach(e => e.appendChild(new HtmlNode('span', {
-                textContent: String.fromCharCode(751),
-                style: {
-                    position: 'absolute',
-                    bottom: '5%',
-                    display: 'block',
-                    'font-size': '4em',
-                    width: '100%',
-                    'text-align': 'center',
-                    cursor: 'default',
-                    opacity: 0.5,
-                    'user-select': 'none'
+        </header>
+        <main>
+            <section>
+                <h1>
+                    The GSA at Arvada West High School works to create a
+                    welcoming environment for all people, regardless of
+                    sexual orientation or gender identity through education,
+                    support, social action, and advocacy.
+                </h1>
+                <br>
+                <h2>
+                    We believe that schools can be truly safe ONLY when every
+                    student is assured of access to an education without fear
+                    of harassment or violence. Our Gay-Straight Alliance brings
+                    together LGBTQI+ and straight allies. All are welcome.
+                </h2>
+            </section>
+            <section>
+                <iframe style="border:0" title="Embeded Video" src="https://drive.google.com/file/d/1fqBAEom_CYiJWCao0wGX1YpZivqZUylS/preview" width="640" height="480" allow="autoplay"></iframe>
+            </section>
+            <section>
+                <div>
+                <script>
+                    async function text(resource) {
+                        try {
+                            const response = await fetch(resource);
+                            return response.ok ? await response.text() : null;
+                        } catch(ignored) {
+                            return null;
+                        }
+                    }
+                    // External link icon by Heroicons
+                    const EXTERNAL_LINK =
+                        new SVGNode('svg', { viewBox: '0 0 20 20', fill: 'currentColor', children: [
+                            new SVGNode('path', {d: "M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"}),
+                            new SVGNode('path', {d: "M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"})
+                        ], style: {
+                            height: '1em',
+                            width: '1em',
+                            'vertical-align': 'text-bottom'
+                        }});
+                    const textSection = $host;
+                    function render(text) {
+                        const result = SHML.parseMarkup(text, new Map(Object.entries({
+                            'flag': '🏳‍🌈',
+                            'pride_flag': '🏳‍🌈',
+                            'resources': '🌈',
+                            'trans_flag': '🏳️‍⚧️',
+                            'transgender_flag': '🏳️‍⚧️',
+                            'transgender_symbol': '⚧️'
+                        })));
+
+                        textSection.innerHTML = result;
+                        
+                        for(const anchor of textSection.$$self`a`.$toArray())
+                                if(anchor.origin !== window.location.origin)
+                                    anchor.appendChild(EXTERNAL_LINK.cloneNode(true));
+                        
+                        document.getElementById(window.location.hash.substring(1))?.scrollIntoView();
+                    }
+                    (async function() {
+                        render(await text('content.md'))
+                    })();
+                </script>
+                </div>
+                <footer>
+                    <p>
+                        &copy; Trin W &amp; Arvada West GSA Club 2021 | <a href="https://github.com/AWHSDev/AWHSGSAFirebase" title="AWHS GSA GitHub Repository">GitHub Repo</a> | Contact: <a href="mailto:awhsdev@gmail.com" target="_blank">awhsdev@gmail.com</a>
+                    </p>
+                </footer>
+            </section>
+            <!--<footer>
+                <p>
+                    &copy; Trin W &amp; Arvada West GSA Club 2021 | <a href="https://github.com/AWHSDev/AWHSGSAFirebase" title="AWHS GSA GitHub Repository">GitHub Repo</a> | Contact: <a href="mailto:awhsdev@gmail.com" target="_blank">awhsdev@gmail.com</a>
+                </p>
+            </footer>-->
+            <script>
+                $$`main section:not(:last-of-type)`.$forEach(e => e.appendChild(new HtmlNode('span', {
+                    textContent: String.fromCharCode(751),
+                    style: {
+                        position: 'absolute',
+                        bottom: '5%',
+                        display: 'block',
+                        'font-size': '4em',
+                        width: '100%',
+                        'text-align': 'center',
+                        cursor: 'default',
+                        opacity: 0.5,
+                        'user-select': 'none'
+                    }
+                })));
+
+                if(new URLSearchParams(window.location.search).has('design')) {
+                    document.body.appendChild(new HtmlNode('button', {
+                        textContent: '✏️',
+                        style: {
+                            border: 'none',
+                            position: 'fixed',
+                            bottom: '1em',
+                            right: '1em',
+                            'font-size': '2em',                            
+                            cursor: 'pointer',
+                            opacity: 0.8,
+                            'user-select': 'none',
+                            'background-color': 'whitesmoke',
+                            'border-radius': '0.5em',
+                            padding: '0.25em',
+                            'box-shadow': '0.02em 0.02em 0.05em 0.05em rgba(0,0,0,0.5)',
+                            'z-index': '1',
+                        },
+                        onmouseenter(){this.style.filter='brightness(70%)'},
+                        onmouseleave(){this.style.filter=''},
+                        onclick() {
+                            window.open('/designer.html', 'designer', 'popup,height=500,width=500');
+                        }
+                    }));
                 }
-            })))
-        </script>
-    </main>
-</body>
+            </script>
+        </main>
+    </body>
 </html>
