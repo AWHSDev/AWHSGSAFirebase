@@ -222,7 +222,7 @@
                 <h2>
                     We believe that schools can be truly safe ONLY when every
                     student is assured of access to an education without fear
-                    of harassment or violence. Our Gay-Straight Alliance brings
+                    of harassment or violence. Our Gender-Sexuality Alliance brings
                     together LGBTQI+ and straight allies. All are welcome.
                 </h2>
             </section>
@@ -267,10 +267,10 @@
                                 if(anchor.origin !== window.location.origin)
                                     anchor.appendChild(EXTERNAL_LINK.cloneNode(true));
                         
-                        document.getElementById(window.location.hash.substring(1))?.scrollIntoView();
                     }
                     (async function() {
                         render(await text('content.md'))
+                        document.getElementById(window.location.hash.substring(1))?.scrollIntoView();
                     })();
                 </script>
                 </div>
