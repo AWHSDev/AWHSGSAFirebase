@@ -7,8 +7,7 @@
         <title>Arvada West GSA</title>
         <meta name="description" content="Website for Arvada West High School's GSA">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-        <!--<script src="/scripts/domlib-latest.js"></script>
-        <script src="/scripts/domlib-extra.js"></script>-->
+        <link rel="stylesheet" href="/scripts/shml.css">
         <script src="/scripts/shml.min.js"></script>
         <script src="/scripts/domlib.min.js?bind"></script>
         <script>
@@ -230,49 +229,49 @@
                 <iframe style="border:0" title="Embeded Video" src="https://drive.google.com/file/d/1fqBAEom_CYiJWCao0wGX1YpZivqZUylS/preview" width="640" height="480" allow="autoplay"></iframe>
             </section>
             <section>
-                <div>
-                <script>
-                    async function text(resource) {
-                        try {
-                            const response = await fetch(resource);
-                            return response.ok ? await response.text() : null;
-                        } catch(ignored) {
-                            return null;
+                <div class="shml">
+                    <script>
+                        async function text(resource) {
+                            try {
+                                const response = await fetch(resource);
+                                return response.ok ? await response.text() : null;
+                            } catch(ignored) {
+                                return null;
+                            }
                         }
-                    }
-                    // External link icon by Heroicons
-                    const EXTERNAL_LINK =
-                        new SVGNode('svg', { viewBox: '0 0 20 20', fill: 'currentColor', children: [
-                            new SVGNode('path', {d: "M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"}),
-                            new SVGNode('path', {d: "M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"})
-                        ], style: {
-                            height: '1em',
-                            width: '1em',
-                            'vertical-align': 'text-bottom'
-                        }});
-                    const textSection = $host;
-                    function render(text) {
-                        const result = SHML.parseMarkup(text, new Map(Object.entries({
-                            'flag': '🏳‍🌈',
-                            'pride_flag': '🏳‍🌈',
-                            'resources': '🌈',
-                            'trans_flag': '🏳️‍⚧️',
-                            'transgender_flag': '🏳️‍⚧️',
-                            'transgender_symbol': '⚧️'
-                        })));
+                        // External link icon by Heroicons
+                        const EXTERNAL_LINK =
+                            new SVGNode('svg', { viewBox: '0 0 20 20', fill: 'currentColor', children: [
+                                new SVGNode('path', {d: "M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"}),
+                                new SVGNode('path', {d: "M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"})
+                            ], style: {
+                                height: '1em',
+                                width: '1em',
+                                'vertical-align': 'text-bottom'
+                            }});
+                        const textSection = $host;
+                        function render(text) {
+                            const result = SHML.parseMarkup(text, new Map(Object.entries({
+                                'flag': '🏳‍🌈',
+                                'pride_flag': '🏳‍🌈',
+                                'resources': '🌈',
+                                'trans_flag': '🏳️‍⚧️',
+                                'transgender_flag': '🏳️‍⚧️',
+                                'transgender_symbol': '⚧️'
+                            })));
 
-                        textSection.innerHTML = result;
-                        
-                        for(const anchor of textSection.$$self`a`.$toArray())
-                                if(anchor.origin !== window.location.origin)
-                                    anchor.appendChild(EXTERNAL_LINK.cloneNode(true));
-                        
-                    }
-                    (async function() {
-                        render(await text('content.md'))
-                        document.getElementById(window.location.hash.substring(1))?.scrollIntoView();
-                    })();
-                </script>
+                            textSection.innerHTML = result;
+                            
+                            for(const anchor of textSection.$$self`a`.$toArray())
+                                    if(anchor.origin !== window.location.origin)
+                                        anchor.appendChild(EXTERNAL_LINK.cloneNode(true));
+                            
+                        }
+                        (async function() {
+                            render(await text('content.md'))
+                            document.getElementById(window.location.hash.substring(1))?.scrollIntoView();
+                        })();
+                    </script>
                 </div>
                 <footer>
                     <p>
@@ -280,11 +279,6 @@
                     </p>
                 </footer>
             </section>
-            <!--<footer>
-                <p>
-                    &copy; Trin W &amp; Arvada West GSA Club 2021 | <a href="https://github.com/AWHSDev/AWHSGSAFirebase" title="AWHS GSA GitHub Repository">GitHub Repo</a> | Contact: <a href="mailto:awhsdev@gmail.com" target="_blank">awhsdev@gmail.com</a>
-                </p>
-            </footer>-->
             <script>
                 $$`main section:not(:last-of-type)`.$forEach(e => e.appendChild(new HtmlNode('span', {
                     textContent: String.fromCharCode(751),
